@@ -64,10 +64,35 @@ pyinstaller --onefile --noconfirm --clean --windowed ^
 
 ---
 
+## 输入项与默认值
+
+界面里的各项**留空即采用默认值**（代码中 `_init_fields()` 定义），对应关系如下：
+
+| 输入项 | 含义 | 默认值 |
+|--------|------|--------|
+| `mingray_R` | R 通道起始灰度 | `0` |
+| `step_R` | R 通道步长 | `10` |
+| `mingray_G` | G 通道起始灰度 | `0` |
+| `step_G` | G 通道步长 | `10` |
+| `mingray_B` | B 通道起始灰度 | `0` |
+| `step_B` | B 通道步长 | `10` |
+| `maxgray` | 最大灰度值 | `255` |
+| `APL` | 屏幕铺满系数（画面尺寸 = 屏幕尺寸 × APL） | `1` |
+| `path` | Excel 保存路径 | `D:/software/vs code/生成excel` |
+| `excelname` | Excel 文件名前缀 | `W-120hz-normal` |
+| `端口` | 仪器串口号 | `COM3` |
+
+> 生成的完整文件名为：`{path}/{excelname}_{时间戳}.xlsx`，例如
+> `D:/software/vs code/生成excel/W-120hz-normal_2026年10月16日_18_00_00.xlsx`。
+
+> 注意：`path` 与 `端口` 的默认值分别是开发者本机路径与串口，**换机器使用时务必手动填写**。
+
+---
+
 ## 使用步骤
 
 1. 双击 `gamma_test_final.exe`。
-2. 在输入窗口填写参数（留空用默认值）：
+2. 在输入窗口填写参数，**留空则用上表默认值**：
    - 起始灰度 `mingray_R/G/B`、步长 `step_R/G/B`、最大灰度 `maxgray`
    - `APL`（屏幕铺满系数）、`path`（保存目录）、`excelname`、`端口`（如 `COM3`）
 3. 点「提交」，程序连接仪器并进入全屏纯色扫描。
