@@ -1,0 +1,4 @@
+pillow
+pyserial
+pandas
+openpyxl
